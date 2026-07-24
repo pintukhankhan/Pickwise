@@ -1,7 +1,21 @@
-/* ============ TOKENS & BASE ============ */
+/* ============================================================
+   PICKWISE — Affiliate Marketing Website
+   Full design system (index.html + review.html + video modal)
+   Fonts: Bricolage Grotesque (display) · Public Sans (body)
+          Space Mono (prices / data)
+   ============================================================ */
+
+
+/* ==================== 1. TOKENS & BASE ==================== */
 :root{
-  --paper:#f3f5ef; --card:#ffffff; --ink:#16211a; --ink-soft:#4b5a51;
-  --green:#177a4c; --green-dark:#0e5a36; --hot:#ff4d24; --amber:#ffc531;
+  --paper:#f3f5ef;
+  --card:#ffffff;
+  --ink:#16211a;
+  --ink-soft:#4b5a51;
+  --green:#177a4c;
+  --green-dark:#0e5a36;
+  --hot:#ff4d24;
+  --amber:#ffc531;
   --line:#d9ded2;
   --display:"Bricolage Grotesque",sans-serif;
   --body:"Public Sans",sans-serif;
@@ -10,18 +24,23 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  font-family:var(--body); color:var(--ink); background:var(--paper);
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--paper);
+  /* ambient dot-grid backdrop */
   background-image:radial-gradient(rgba(22,33,26,.07) 1px,transparent 1px);
-  background-size:22px 22px; line-height:1.6;
+  background-size:22px 22px;
+  line-height:1.6;
 }
 img{max-width:100%;display:block}
-::selection{background:var(--amber)}
+::selection{background:var(--amber);color:var(--ink)}
 :focus-visible{outline:3px solid var(--hot);outline-offset:2px;border-radius:4px}
 .container{width:min(1140px,92%);margin-inline:auto}
 section{scroll-margin-top:150px}
 .mono{font-family:var(--mono);font-weight:700}
 
-/* ============ TICKER ============ */
+
+/* ==================== 2. LIVE DEAL TICKER ==================== */
 .ticker{background:var(--ink);color:var(--paper);overflow:hidden;border-bottom:2px solid var(--ink)}
 .ticker-track{display:flex;width:max-content;animation:tick 30s linear infinite}
 .ticker:hover .ticker-track{animation-play-state:paused}
@@ -30,28 +49,33 @@ section{scroll-margin-top:150px}
 .ticker i{color:var(--amber);font-style:normal}
 @keyframes tick{to{transform:translateX(-50%)}}
 
-/* ============ HEADER ============ */
+
+/* ==================== 3. HEADER ==================== */
 .site-head{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:2px solid var(--ink)}
 .head-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
 .brand{display:flex;align-items:center;gap:9px;font:800 1.3rem var(--display);letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
 .brand em{font-style:normal;color:var(--green)}
 .brand .mark{display:grid;place-items:center;width:28px;height:28px;background:var(--hot);color:#fff;border:2px solid var(--ink);border-radius:8px;font:700 .72rem var(--mono);transform:rotate(-5deg);transition:transform .25s}
-.brand:hover .mark{transform:rotate(5deg) scale(1.08)}
+.brand:hover .mark{transform:rotate(5deg) scale(1.1)}
 .main-nav{display:flex;gap:24px}
 .main-nav a{font-weight:600;font-size:.92rem;color:var(--ink);text-decoration:none;position:relative}
 .main-nav a::after{content:"";position:absolute;left:0;bottom:-5px;height:3px;width:100%;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .main-nav a:hover::after{transform:scaleX(1)}
 
-/* ============ BUTTONS ============ */
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;border:2px solid var(--ink);padding:12px 20px;border-radius:12px;font:700 .95rem var(--body);text-decoration:none;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+
+/* ==================== 4. BUTTONS ==================== */
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;border:2px solid var(--ink);padding:12px 20px;border-radius:12px;font:700 .95rem var(--body);text-decoration:none;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s,background .15s}
 .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
 .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
 .btn .arr{transition:transform .2s}
 .btn:hover .arr{transform:translateX(4px)}
 .btn.small{padding:9px 14px;font-size:.85rem}
 .btn.amber{background:var(--amber);color:var(--ink)}
+.btn.ghost{background:#fff;color:var(--ink)}
+.btn.ghost:hover{background:var(--amber)}
 
-/* ============ HERO / DEAL OF THE DAY ============ */
+
+/* ==================== 5. HERO / DEAL OF THE DAY ==================== */
 .hero{padding:58px 0 44px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;right:-140px;top:-100px;width:560px;height:560px;background:radial-gradient(closest-side,rgba(255,197,49,.4),transparent 70%);pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative}
@@ -64,8 +88,8 @@ section{scroll-margin-top:150px}
 .stat b{display:block;font:800 2rem var(--display);letter-spacing:-.02em}
 .stat span{font:700 .66rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
 
-.deal-card{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--ink);transition:transform .25s,box-shadow .25s}
-.deal-card:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--ink)}
+/* Deal ticket card */
+.deal-card{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--ink)}
 .deal-card::before,.deal-card::after{content:"";position:absolute;top:212px;width:24px;height:24px;background:var(--paper);border:2px solid var(--ink);border-radius:50%}
 .deal-card::before{left:-14px}
 .deal-card::after{right:-14px}
@@ -90,7 +114,8 @@ section{scroll-margin-top:150px}
 .count small{font:700 .58rem var(--mono);letter-spacing:.14em;opacity:.65}
 .deal-note{margin-top:12px;font-size:.8rem;color:var(--ink-soft)}
 
-/* ============ TOOLBAR ============ */
+
+/* ==================== 6. FILTER TOOLBAR ==================== */
 .toolbar{position:sticky;top:64px;z-index:50;background:var(--paper);border-block:2px solid var(--ink)}
 .toolbar-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;flex-wrap:wrap}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
@@ -101,7 +126,8 @@ section{scroll-margin-top:150px}
 .field{padding:9px 14px;border:1.5px solid var(--ink);border-radius:10px;background:#fff;font:500 .88rem var(--body);color:var(--ink)}
 .field:focus{outline:3px solid var(--amber);outline-offset:1px}
 
-/* ============ SECTIONS & GRID ============ */
+
+/* ==================== 7. SECTIONS & PRODUCT GRID ==================== */
 .section{padding:66px 0}
 .section.alt{background:#eaeeda;border-block:2px solid var(--ink)}
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:30px;flex-wrap:wrap}
@@ -110,8 +136,7 @@ section{scroll-margin-top:150px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(262px,1fr));gap:26px}
 .empty{grid-column:1/-1;font:700 .95rem var(--mono);color:var(--ink-soft);padding:30px 0}
 
-.card{position:relative;display:flex;flex-direction:column;background:var(--card);border:2px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--ink);overflow:hidden;transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.card{position:relative;display:flex;flex-direction:column;background:var(--card);border:2px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--ink);overflow:hidden}
 .card-media{position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
 .card-media img{height:180px;width:100%;object-fit:cover;transition:transform .5s ease}
 .card:hover .card-media img{transform:scale(1.07)}
@@ -128,9 +153,11 @@ section{scroll-margin-top:150px}
 .price-row{display:flex;align-items:baseline;gap:10px}
 .price{font:700 1.3rem var(--mono)}
 .price-row s{color:#93a09a;font-size:.9rem}
-.card .btn{justify-content:center}
+.card-actions{display:flex;gap:8px}
+.card-actions .btn{flex:1;justify-content:center;padding:11px 8px;font-size:.87rem}
 
-/* ============ TABLE ============ */
+
+/* ==================== 8. COMPARISON TABLE ==================== */
 .table-wrap{overflow-x:auto;background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--ink)}
 table{width:100%;border-collapse:collapse;min-width:680px;font-size:.94rem}
 th{background:var(--ink);color:var(--paper);font:700 .68rem var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:14px 16px;text-align:left}
@@ -147,7 +174,8 @@ td a:hover{text-decoration:underline}
 .score i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform 1s .3s ease}
 .table-wrap.in .score i::after{transform:scaleX(1)}
 
-/* ============ AI CHAT ============ */
+
+/* ==================== 9. AI CHAT ==================== */
 .ai-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
 .ai-copy h2{font:800 clamp(1.9rem,3.4vw,2.7rem) var(--display);letter-spacing:-.02em;margin:10px 0 14px}
 .ai-copy p{color:var(--ink-soft)}
@@ -160,6 +188,8 @@ td a:hover{text-decoration:underline}
 .avatar{display:grid;place-items:center;width:38px;height:38px;background:var(--amber);color:var(--ink);border:2px solid var(--ink);border-radius:50%;font:800 1.1rem var(--display)}
 .chat-head small{display:block;font:600 .72rem var(--mono);opacity:.85}
 .chat-log{height:360px;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(22,33,26,.045) 27px 28px)}
+.chat-log::-webkit-scrollbar{width:10px}
+.chat-log::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px;border:2px solid var(--paper)}
 .msg{max-width:88%;padding:11px 14px;border:1.5px solid var(--ink);border-radius:12px;font-size:.92rem;animation:pop .3s ease}
 @keyframes pop{from{opacity:0;transform:translateY(8px)}}
 .msg.user{align-self:flex-end;background:var(--ink);color:var(--paper);border-bottom-right-radius:3px}
@@ -182,7 +212,8 @@ td a:hover{text-decoration:underline}
 .chat-form button{border:0;border-left:2px solid var(--ink);background:var(--green);color:#fff;padding:0 24px;font:700 .95rem var(--body);cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .15s}
 .chat-form button:hover{background:var(--green-dark)}
 
-/* ============ METHOD ============ */
+
+/* ==================== 10. METHOD STEPS ==================== */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:6px 6px 0 var(--ink);overflow:hidden}
 .step{padding:28px 24px;border-left:2px solid var(--ink);transition:background .2s}
 .step:first-child{border-left:0}
@@ -191,7 +222,8 @@ td a:hover{text-decoration:underline}
 .step h3{font:800 1.15rem var(--display);margin:10px 0 8px;letter-spacing:-.01em}
 .step p{font-size:.88rem;color:var(--ink-soft)}
 
-/* ============ NEWSLETTER & FOOTER ============ */
+
+/* ==================== 11. NEWSLETTER & FOOTER ==================== */
 .newsletter{background:var(--ink);color:var(--paper);padding:66px 0}
 .nl{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .nl h2{font:800 clamp(1.9rem,3.4vw,2.6rem) var(--display);letter-spacing:-.02em}
@@ -208,18 +240,170 @@ footer{padding:38px 0 48px}
 .foot-row a{color:var(--ink-soft)}
 .foot-row a:hover{color:var(--green-dark)}
 
-/* ============ REVEAL & MOTION ============ */
-.reveal,.card{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
-.reveal.in,.card.in{opacity:1;transform:none}
-.card:hover{transform:translate(-3px,-3px)}
 
-/* ============ RESPONSIVE ============ */
+/* ==================== 12. VIDEO MODAL ==================== */
+.modal{position:fixed;inset:0;z-index:200;background:rgba(22,33,26,.82);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal.open{opacity:1;pointer-events:auto}
+.modal-box{position:relative;width:min(880px,100%);background:var(--ink);border:2px solid var(--ink);border-radius:16px;box-shadow:10px 10px 0 rgba(0,0,0,.45);transform:translateY(18px) scale(.97);transition:transform .25s}
+.modal.open .modal-box{transform:none}
+.modal-frame{aspect-ratio:16/9;border-radius:14px;overflow:hidden}
+.modal-frame iframe,.modal-frame video{width:100%;height:100%;display:block;border:0}
+.modal-close{position:absolute;top:-16px;right:-14px;width:42px;height:42px;background:var(--hot);color:#fff;border:2px solid var(--ink);border-radius:50%;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:3px 3px 0 var(--ink);z-index:2;transition:transform .2s}
+.modal-close:hover{transform:rotate(90deg)}
+
+
+/* ==================== 13. REVIEW PAGE ==================== */
+/* Reading progress bar */
+.progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--hot);z-index:300}
+
+/* Breadcrumb */
+.crumb{padding:16px 0 0;font:700 .74rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.crumb a{color:var(--green-dark);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+
+/* Article opening */
+.review-head{padding:26px 0 52px}
+.review-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.kicker{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.kicker .k{font:700 .66rem var(--mono);letter-spacing:.12em;padding:6px 10px;border:1.5px solid var(--ink);border-radius:6px}
+.kicker .k.lab{background:var(--ink);color:var(--amber)}
+.kicker .k.cat{background:#d9f2e3;color:var(--ink)}
+h1.review-title{font:800 clamp(2.1rem,4.4vw,3.3rem)/1.05 var(--display);letter-spacing:-.03em;margin-bottom:16px}
+.dek{font-size:1.12rem;color:var(--ink-soft);max-width:54ch}
+.byline{display:flex;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
+.avatar-sm{display:grid;place-items:center;width:44px;height:44px;background:var(--amber);border:2px solid var(--ink);border-radius:50%;font:800 .95rem var(--display)}
+.byline b{display:block;font-size:.92rem}
+.byline span{font:600 .74rem var(--mono);color:var(--ink-soft);letter-spacing:.04em}
+.verified{font:700 .68rem var(--mono);background:#d9f2e3;border:1.5px solid var(--ink);border-radius:6px;padding:5px 9px}
+.top-disclose{margin-top:22px;font-size:.8rem;color:var(--ink-soft);border:1.5px dashed var(--ink);border-radius:10px;padding:10px 14px;background:#fff}
+
+/* Review hero card extras */
+.hero-card{position:relative}
+.score-stamp{position:absolute;top:-20px;right:-12px;width:98px;height:98px;border-radius:50%;background:var(--green);color:#fff;border:2.5px dashed rgba(255,255,255,.85);outline:2px solid var(--ink);display:grid;place-items:center;text-align:center;transform:rotate(8deg);z-index:2;animation:wobble 4s ease-in-out infinite}
+.score-stamp b{font:800 1.75rem/1 var(--display)}
+.score-stamp small{font:700 .5rem var(--mono);letter-spacing:.14em}
+.checked-note{display:flex;align-items:center;gap:8px;margin-top:12px;font:700 .74rem var(--mono);color:var(--green-dark)}
+.checked-note i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.4s infinite}
+
+/* Verdict strip */
+.verdict{background:var(--ink);color:var(--paper);border-block:2px solid var(--ink);padding:60px 0;scroll-margin-top:90px}
+.verdict-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:start}
+.verdict .eyebrow{color:var(--amber)}
+.verdict h2{font:800 clamp(1.7rem,3vw,2.3rem) var(--display);letter-spacing:-.02em;margin:12px 0 18px}
+.big-quote{font:600 1.28rem/1.5 var(--display);color:#e8ece6;border-left:4px solid var(--amber);padding-left:20px}
+.bars{display:grid;gap:16px;margin-top:28px}
+.bar-top{display:flex;justify-content:space-between;font:700 .76rem var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.bar-track{height:10px;background:rgba(243,245,239,.14);border-radius:99px;overflow:hidden;margin-top:6px}
+.bar-track i{display:block;height:100%;width:0;background:var(--amber);border-radius:99px;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.bars.in .bar-track i{width:var(--w)}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:30px}
+.pros-cons h3{font:700 .74rem var(--mono);letter-spacing:.16em;margin-bottom:12px}
+.pros-cons ul{list-style:none;display:grid;gap:9px}
+.pros-cons li{font-size:.9rem;color:#d5dbd3;padding-left:24px;position:relative}
+li.pro::before{content:"✓";position:absolute;left:0;color:#5ad48f;font-weight:800}
+li.con::before{content:"✗";position:absolute;left:0;color:var(--hot);font-weight:800}
+
+/* Article body + TOC */
+.article-wrap{display:grid;grid-template-columns:220px 1fr;gap:56px;padding:60px 0}
+.toc{position:sticky;top:96px;align-self:start}
+.toc p{font:700 .68rem var(--mono);letter-spacing:.18em;color:var(--ink-soft);margin-bottom:12px}
+.toc a{display:block;font:600 .82rem var(--body);color:var(--ink-soft);text-decoration:none;padding:7px 12px;border-left:2px solid var(--line);transition:all .2s}
+.toc a:hover{color:var(--ink);border-color:var(--amber)}
+.toc a.active{color:var(--ink);border-color:var(--hot);background:#fff;border-radius:0 8px 8px 0;font-weight:700}
+.prose{max-width:70ch}
+.prose section{scroll-margin-top:100px;margin-bottom:56px}
+.prose h2{font:800 1.65rem var(--display);letter-spacing:-.02em;margin-bottom:16px}
+.prose h2 .idx{font:700 .85rem var(--mono);color:var(--hot);vertical-align:super;margin-right:6px}
+.prose p{margin-bottom:1.1em;color:#2c3a31}
+.prose .lead{font-size:1.06rem}
+.prose figure{margin:26px 0;border:2px solid var(--ink);border-radius:14px;overflow:hidden;background:#fff;box-shadow:6px 6px 0 var(--ink)}
+.prose figure img{width:100%;height:auto;display:block}
+.prose figcaption{font:600 .74rem var(--mono);color:var(--ink-soft);padding:12px 16px;border-top:2px solid var(--ink);letter-spacing:.04em}
+.price-check{display:flex;align-items:center;gap:16px;flex-wrap:wrap;border:2px dashed var(--ink);background:#fff7dd;border-radius:14px;padding:16px 20px;margin:30px 0}
+.price-check p{margin:0;font:700 .85rem var(--mono)}
+.data-table{width:100%;border-collapse:collapse;border:2px solid var(--ink);border-radius:14px;overflow:hidden;background:#fff;font-size:.9rem;margin:24px 0;box-shadow:5px 5px 0 var(--ink)}
+.data-table th{background:var(--ink);color:var(--paper);font:700 .68rem var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:12px 14px;text-align:left}
+.data-table td{padding:13px 14px;border-top:1.5px solid var(--line)}
+.data-table .num{font:700 .88rem var(--mono)}
+.data-table .win{color:var(--green-dark);font:700 .74rem var(--mono)}
+.video-embed{aspect-ratio:16/9;border:2px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:6px 6px 0 var(--ink);margin:24px 0}
+.video-embed iframe{width:100%;height:100%;border:0;display:block}
+
+/* FAQ accordion */
+.faq-item{border:2px solid var(--ink);border-radius:14px;background:#fff;margin-bottom:12px;overflow:hidden;transition:box-shadow .2s}
+.faq-item.open{box-shadow:5px 5px 0 var(--ink)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 18px;background:none;border:0;font:700 1rem var(--body);color:var(--ink);cursor:pointer;text-align:left}
+.faq-q .ic{flex:none;width:28px;height:28px;display:grid;place-items:center;border:2px solid var(--ink);border-radius:8px;background:var(--amber);font-weight:800;transition:transform .3s,background .3s}
+.faq-item.open .ic{transform:rotate(45deg);background:var(--hot);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 18px 16px;color:var(--ink-soft);font-size:.94rem;margin:0}
+.faq-item.open .faq-a{max-height:280px}
+
+/* Bottom line */
+.bottom-line{position:relative;border:2px solid var(--ink);background:#fff7dd;border-radius:18px;box-shadow:8px 8px 0 var(--ink);padding:34px 30px;margin-top:10px}
+.bl-stamp{position:absolute;top:-16px;left:24px;background:var(--hot);color:#fff;font:700 .7rem var(--mono);letter-spacing:.14em;padding:7px 12px;border:2px solid var(--ink);border-radius:8px;transform:rotate(-2deg)}
+.bottom-line h3{font:800 1.5rem var(--display);margin:8px 0 12px}
+.bottom-line p{color:#4b5a51;margin-bottom:20px}
+
+/* Runner-ups */
+.rival{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;border:2px solid var(--ink);border-radius:14px;background:#fff;padding:14px;margin-bottom:16px;box-shadow:5px 5px 0 var(--ink);transition:transform .2s,box-shadow .2s}
+.rival:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.rival img{width:150px;height:110px;object-fit:cover;border-radius:10px;border:1.5px solid var(--ink)}
+.rival h3{font:800 1.05rem var(--display);margin:4px 0 6px}
+.rival p{font-size:.86rem;color:var(--ink-soft);margin-bottom:8px}
+.rival a{font:700 .85rem var(--body);color:var(--green-dark)}
+.rival .why{font:700 .64rem var(--mono);letter-spacing:.12em;color:var(--hot)}
+
+/* Sticky buy bar */
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:150;background:var(--ink);color:var(--paper);border-top:3px solid var(--hot);transform:translateY(110%);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.buybar.show{transform:none}
+.buybar-in{display:flex;align-items:center;gap:14px;padding:10px 0}
+.buybar img{width:48px;height:48px;object-fit:cover;border-radius:9px;border:2px solid var(--paper)}
+.bb-txt{flex:1;min-width:0}
+.bb-txt strong{display:block;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bb-txt span{font:700 .76rem var(--mono);color:var(--amber)}
+.bb-txt s{color:#8a968f}
+
+/* Related reviews */
+.related{display:grid;grid-template-columns:1.25fr .75fr;gap:24px}
+.rel-card{display:block;background:#fff;border:2px solid var(--ink);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:6px 6px 0 var(--ink);transition:transform .2s,box-shadow .2s}
+.rel-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.rel-card.big img{width:100%;height:250px;object-fit:cover;border-bottom:2px solid var(--ink)}
+.rel-body{padding:18px 20px}
+.rel-body h3{font:800 1.15rem var(--display);margin:8px 0 8px;letter-spacing:-.01em}
+.rel-meta{font:700 .68rem var(--mono);letter-spacing:.1em;color:var(--ink-soft)}
+.rel-side{display:grid;gap:24px}
+.rel-card.side{display:grid;grid-template-columns:110px 1fr;align-items:center}
+.rel-card.side img{width:110px;height:100%;min-height:110px;object-fit:cover;border-right:2px solid var(--ink)}
+.rel-card.side .rel-body{padding:14px 16px}
+.rel-card.side h3{font-size:.98rem}
+
+
+/* ==================== 14. SCROLL REVEALS & MOTION ==================== */
+.reveal,.card,.deal-card,.table-wrap,.chat{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .6s ease,transform .45s cubic-bezier(.22,1,.36,1),box-shadow .25s ease;
+}
+.reveal.in,.card.in,.deal-card.in,.table-wrap.in,.chat.in{opacity:1;transform:translateY(0)}
+/* snappier interactions once revealed */
+.card.in,.deal-card.in{transition-duration:.2s,.2s,.2s}
+.card.in:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.deal-card.in:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--ink)}
+
+
+/* ==================== 15. RESPONSIVE ==================== */
 @media(max-width:1020px){
-  .hero-grid,.ai-grid,.nl{grid-template-columns:1fr}
-  .deal-card{max-width:560px}
+  .hero-grid,.ai-grid,.nl,.review-grid,.verdict-grid{grid-template-columns:1fr}
+  .deal-card,.hero-card{max-width:560px}
   .steps{grid-template-columns:1fr 1fr}
   .step:nth-child(odd){border-left:0}
   .step:nth-child(n+3){border-top:2px solid var(--ink)}
+  .article-wrap{grid-template-columns:1fr}
+  .toc{position:static;display:flex;flex-wrap:wrap;gap:6px;border:2px solid var(--ink);border-radius:14px;background:#fff;padding:12px;box-shadow:5px 5px 0 var(--ink)}
+  .toc p{width:100%}
+  .toc a{border:1.5px solid var(--line);border-radius:999px;padding:6px 12px}
+  .toc a.active{border-color:var(--hot);background:#fff7dd}
+  .related{grid-template-columns:1fr}
 }
 @media(max-width:680px){
   .main-nav,.head-cta{display:none}
@@ -230,8 +414,15 @@ footer{padding:38px 0 48px}
   .tools{width:100%}
   .field{flex:1}
   .stats{gap:22px}
+  .rival{grid-template-columns:1fr}
+  .rival img{width:100%;height:150px}
+  .bb-txt strong{display:none}
+  .pros-cons{grid-template-columns:1fr}
 }
+
+
+/* ==================== 16. REDUCED MOTION ==================== */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .reveal,.card{opacity:1;transform:none}
+  .reveal,.card,.deal-card,.table-wrap,.chat{opacity:1;transform:none}
 }
