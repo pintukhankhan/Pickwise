@@ -1,7 +1,7 @@
-# Pickwise
+# Pickwire
 AI-powered affiliate review site — lab-tested product picks, live deal tracking, comparison tables, and a smart AI buying advisor. Built with HTML, CSS &amp; JavaScript.
 
-# PickWise — Tested Picks & Verified Deals
+# PickWire — Tested Picks & Verified Deals
 
 A fast, AI-powered affiliate marketing website.
 
